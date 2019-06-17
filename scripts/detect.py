@@ -35,7 +35,7 @@ class tpu_detector:
         try:
             cv_image = self.bridge.imgmsg_to_cv2(data, desired_encoding="passthrough")
         except CvBridgeError as e:
-            print(e)
+            rospy.logerr(e)
 
         results = self.engine.DetectWithImage(PIL.Image.fromarray(cv_image), top_k=1, threshold=self.threshold, keep_aspect_ratio=True, relative_coord=True)
 
@@ -45,14 +45,14 @@ class tpu_detector:
                 rospy.loginfo(detection.bounding_box)
                 
             except:
-                rospy.loginfo("Error processing results")
-                print(results)
+                rospy.logerr("Error processing results")
+                rospy.logerr(results)
         
         rospy.logdebug("%.2f ms" % self.engine.get_inference_time())
 
 def main(args):
 
-    rospy.init_node('classify', anonymous=True)
+    rospy.init_node('detect', anonymous=True)
     
     model_path = rospy.get_param('~model_path')
     label_path = rospy.get_param('~label_path')

@@ -37,7 +37,7 @@ class tpu_classifier:
         try:
             cv_image = self.bridge.imgmsg_to_cv2(data, desired_encoding="passthrough")
         except CvBridgeError as e:
-            print(e)
+            rospy.logerr(e)
 
         results = self.engine.ClassifyWithImage(PIL.Image.fromarray(cv_image), top_k=1, threshold=self.threshold)
 
@@ -46,8 +46,8 @@ class tpu_classifier:
                 rospy.loginfo("%s %.2f\n%.2fms" % (
                     self.labels[results[0][0]], results[0][1], self.engine.get_inference_time()))
             except:
-                rospy.loginfo("Error processing results")
-                print(results)
+                rospy.logerr("Error processing results")
+                rospy.logerr(results)
 
 def main(args):
 

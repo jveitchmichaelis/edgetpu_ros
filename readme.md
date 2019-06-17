@@ -1,14 +1,21 @@
-### Introduction
+# Edge TPU in ROS
 
 This ROS package provides basic support for the Google Coral Edge TPU USB accelerator (bit of a mouthful, isn't it).
 
 Currently two nodes are provided which subscribe to an image topic and perform classification and detection. In theory you can run any (suitable) tensorflow network on the device, but you'll need to write your own node to do that. However, the vast majority of users will probably just want to detect or classify things.
 
-You can find model files here: `https://coral.googlesource.com/edgetpu/+/refs/heads/release-chef/test_data/`.
+You can find model files [here](https://coral.googlesource.com/edgetpu/+/refs/heads/release-chef/test_data/).
 
 Getting this package going requires a little bit of fiddling. You need to be in a ROS environment with Python 3, because the Edge TPU API doesn't work with Python 2. As with most things involving ROS and Python, this can cause some problems. In particular, `cv_bridge` will cause you some trouble which you need to fix. This should probably be re-written to use the EdgeTPU C++ API.
 
 This package has been tested with ROS Melodic, OpenCV 4 and Python 3.x. If you're going to go bleeding edge, you might as well make everything bleeding edge.
+
+Things to maybe change:
+
+- Switch to C++ for less installation pain
+- Support generic models
+- Use object recognition messages
+- Use ROS image transport message, not OpenCV
 
 ### Usage
 
