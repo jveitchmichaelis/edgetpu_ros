@@ -1,6 +1,6 @@
 # Edge TPU in ROS
 
-This ROS package provides basic support for the Google Coral Edge TPU USB accelerator (bit of a mouthful, isn't it).
+This ROS package provides basic support for the Google Edge TPU, for example the Coral dev board or the USB accelerator.
 
 Currently two nodes are provided which subscribe to an image topic and perform classification and detection. In theory you can run any (suitable) tensorflow network on the device, but you'll need to write your own node to do that. However, the vast majority of users will probably just want to detect or classify things.
 
