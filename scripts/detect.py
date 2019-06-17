@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import roslib
-roslib.load_manifest("boson")
+roslib.load_manifest("edge_tpu")
 import sys
 import rospy
 import cv2
