@@ -1,0 +1,18 @@
+<package format="2">
+  <name>edge_tpu</name>
+  <version>0.1.0</version>
+  <description>
+  This package provides foo capability.
+  </description>
+  <maintainer email="j.veitchmichaelis@gmail.com">Josh Veitch-Michaelis</maintainer>
+  <license>GPL</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>object_recognition_core</depend>
+
+</package>

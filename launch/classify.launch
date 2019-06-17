@@ -1,0 +1,6 @@
+<launch>
+  <node pkg="edge_tpu" name="classifier" type="classify.py" output="screen">
+    <param name="model_path" value="$(find edge_tpu)/models/inception_v4_299_quant_edgetpu.tflite" />
+    <param name="label_path" value="$(find edge_tpu)/models/imagenet_labels.txt" />
+  </node>
+</launch>
