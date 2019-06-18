@@ -8,14 +8,12 @@ You can find model files [here](https://coral.googlesource.com/edgetpu/+/refs/he
 
 Getting this package going requires a little bit of fiddling. You need to be in a ROS environment with Python 3, because the Edge TPU API doesn't work with Python 2. As with most things involving ROS and Python, this can cause some problems. In particular, `cv_bridge` will cause you some trouble which you need to fix. This should probably be re-written to use the EdgeTPU C++ API.
 
-This package has been tested with ROS Melodic, OpenCV 4 and Python 3.x. If you're going to go bleeding edge, you might as well make everything bleeding edge.
+This package has been tested with ROS Melodic, OpenCV 4.1 and Python 3.x. If you're going to go bleeding edge, you might as well make everything bleeding edge.
 
 Things to maybe change:
 
 - Switch to C++ for less installation pain
-- Support generic models
-- Use object recognition messages
-- Use ROS image transport message, not OpenCV
+- Support for generic models
 
 ### Usage
 
@@ -44,6 +42,8 @@ or a classifier:
 ```
 
 The nodes will listen to a topic called `input` which you should remap to your camera's image topic. The Edge API will do all the resizing for you, but the canned models are designed to work at around 300x300 so just be aware that if you send in a 5MP image, you'll lose quite a bit of resolution.
+
+The detection node publishes a [Detection2DArray](http://docs.ros.org/api/vision_msgs/html/msg/Detection2D.html) topic (`detections`) which includes image crops for each bounding box. 
 
 ### Anaconda setup
 
