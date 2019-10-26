@@ -1,5 +1,5 @@
 <launch>
-  <node pkg="edge_tpu" name="detector" type="detect.py" output="screen">
+  <node pkg="edge_tpu" name="detector" type="detect" output="screen">
     <param name="model_path" value="$(find edge_tpu)/models/mobilenet_ssd_v2_coco_quant_postprocess_edgetpu.tflite" />
     <param name="label_path" value="$(find edge_tpu)/models/coco_labels.txt" />
   </node>

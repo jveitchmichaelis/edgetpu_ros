@@ -6,3 +6,7 @@ find_package(catkin REQUIRED COMPONENTS message_generation rospy)
 
 catkin_package()
 
+catkin_install_python(PROGRAMS scripts/classify scripts/detect
+                      DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+
